@@ -1,0 +1,5 @@
+title: Login
+tabs:
+  main:
+    display: Main
+    fields: {  }
