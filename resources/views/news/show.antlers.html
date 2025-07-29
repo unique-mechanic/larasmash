@@ -1,1 +1,49 @@
-<h1>{{ title }}</h1>
+<main class="min-h-screen bg-gray-900 text-gray-300 font-sans p-4 lg:p-8">
+    <div class="max-w-4xl mx-auto bg-gray-800 border border-gray-700 rounded-lg shadow-xl p-6 lg:p-10 my-8">
+
+
+        <a href="{{ '/news' }}" class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-200 mb-6 group">
+            <svg class="w-4 h-4 mr-2 transform rotate-180 group-hover:-translate-x-1 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+            Back to News
+        </a>
+
+
+        {{ if featured_image }}
+        <div class="mb-8 rounded-lg overflow-hidden border border-gray-700 shadow-md">
+            <img src="{{ featured_image }}" alt="{{ title }}" class="w-full h-auto object-cover rounded-lg bg-blend-multiply bg-black bg-opacity-30">
+        </div>
+        {{ /if }}
+
+
+        <h1 class="text-blue-400 font-bold text-4xl lg:text-5xl mb-2 drop-shadow-[0_0_8px_rgba(0,240,255,0.7)]">
+            {{ title }}
+        </h1>
+
+        {{ if tags }}
+        {{ tags }}
+        <a href="{{ url }}" class="text-sm text-gray-400 flex items-center mb-4">
+            <svg class="fill-current text-green-500 w-3 h-3 mr-2 drop-shadow-[0_0_2px_rgba(0,255,0,0.8)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
+            </svg>
+            {{ title }}
+        </a>
+        {{ /tags }}
+        {{ /if }}
+
+
+        <div class="flex items-center text-gray-400 text-sm mb-8 mt-2">
+            {{ if author:avatar }}
+            <img class="w-8 h-8 rounded-full mr-2 border-2 border-green-500" src="{{ author:avatar }}" alt="Avatar of {{ author:name }}">
+            {{ else }}
+            <img class="w-8 h-8 rounded-full mr-2 border-2 border-green-500" src="{{ author:avatar }}" alt="Default Avatar">
+            {{ /if }}
+            <p class="mr-4">{{ author:name }}</p>
+            <p>{{ date format="F jS, Y" }}</p>
+        </div>
+
+        <div class="prose prose-invert max-w-none text-gray-300 leading-relaxed text-lg">
+            {{ article_content }}
+        </div>
+
+    </div>
+</main>

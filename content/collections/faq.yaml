@@ -1,11 +1,11 @@
-title: 'News Articles'
-template: news/show
+title: FAQ/TIPS
+template: faq-tips/show
 layout: layout
-mount: 90f49455-380b-4cad-b21f-8e65ff9532f7
+mount: 9cb2f5cf-dddf-46c1-b982-0f41d262eddc
 taxonomies:
   - tags
 revisions: false
-route: '/{mount}/{slug}'
+route: '{mount}/{slug}'
 date: true
 sort_dir: asc
 date_behavior:

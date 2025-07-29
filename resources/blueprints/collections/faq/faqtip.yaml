@@ -1,0 +1,66 @@
+title: FAQ/TIP
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: author
+            field:
+              type: users
+              display: Author
+              listable: true
+              max_items: 1
+              default:
+                - 4947d5f3-ec17-45d0-85e6-c697af2d2a85
+          -
+            handle: featured_image
+            field:
+              container: assets
+              type: assets
+              display: 'Featured Image'
+              max_files: 1
+          -
+            handle: article_content
+            field:
+              reading_time: true
+              word_count: true
+              remove_empty_nodes: false
+              type: bard
+              display: 'Article Content'
+              instructions: 'Formatting is available'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+          -
+            handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+              display: Tags
+              mode: select
