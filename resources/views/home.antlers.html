@@ -62,82 +62,8 @@
         {{ /if }}
     </div>
 
-    {{ panels }}
+    {{ partial:panel }}
 
-    {{ if count % 2 }}
-    <div class="overflow-hidden bg-gray-950 py-24 sm:py-32 border-t border-b border-gray-800 {{ if ! loop.last }}mb-4{{ /if }}">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                {{ if panel_image }}
-                <img width="{{ panel_image:width }}"
-                     height="{{ panel_image:height }}"
-                     src="{{ panel_image:url }}"
-                     alt="{{ panel_image:alt ?? 'Car Screenshot' }}"
-                     class="w-full h-auto rounded-xl shadow-xl ring-1 ring-gray-700/50 transform rotate-1 -translate-y-2 filter drop-shadow-[0_0_15px_rgba(252,211,77,0.3)]"
-                />
-                {{ /if }}
-                <div class="lg:pt-4 lg:pr-8">
-                    <div class="ml-5 lg:max-w-lg">
-                        <h2 class="text-base/7 font-bold text-yellow-400 uppercase tracking-wide">{{ cta_text }} </h2>
-                        <p class="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl filter drop-shadow-[0_0_8px_rgba(252,211,77,0.4)]">{{ panel_heading }}</p>
-                        <div class="mt-6 text-lg/8 text-gray-300">
-                            <p>
-                                {{ panel_content }}
-                            </p>
-                        </div>
-
-                        <div class="mt-10">
-                            <a href="{{ cta_link }}"
-                               class="rounded-md bg-yellow-600 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-md transition-all duration-200 hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600 uppercase tracking-wider"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                            >
-                                {{ button_text }}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{ else }}
-    <div class="overflow-hidden bg-gray-950 py-24 sm:py-32 border-t border-b border-gray-800 {{ if ! loop.last }}mb-4{{ /if }}">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                <div class="lg:pt-4 lg:pr-8">
-                    <div class="lg:max-w-lg">
-                        <h2 class="text-base/7 font-bold text-yellow-400 uppercase tracking-wide">{{ cta_text }} </h2>
-                        <p class="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl filter drop-shadow-[0_0_8px_rgba(252,211,77,0.4)]">{{ panel_heading }}</p>
-                        <div class="mt-6 text-lg/8 text-gray-300">
-                            <p>
-                                {{ panel_content }}
-                            </p>
-                        </div>
-                        <div class="mt-10">
-                            <a href="{{ cta_link }}"
-                               class="rounded-md bg-yellow-600 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-md transition-all duration-200 hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600 uppercase tracking-wider"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                            >
-                                {{ button_text }}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                {{ if panel_image }}
-                <img width="{{ panel_image:width }}"
-                     height="{{ panel_image:height }}"
-                     src="{{ panel_image:url }}"
-                     alt="{{ panel_image:alt ?? 'Car Screenshot' }}"
-                     class="w-full h-auto rounded-xl shadow-xl ring-1 ring-gray-700/50 transform -rotate-1 translate-y-2 filter drop-shadow-[0_0_15px_rgba(252,211,77,0.3)]"
-                />
-                {{ /if }}
-            </div>
-        </div>
-    </div>
-    {{ /if }}
-
-    {{ /panels }}
 
 </div>
 

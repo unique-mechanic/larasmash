@@ -1,0 +1,17 @@
+tree:
+  -
+    id: d6a442aa-e5d7-402a-af8b-e99a6164a3c7
+    title: IGN
+    url: 'https://www.ign.com/au'
+  -
+    id: 8366fd96-38b3-4730-bb45-438ba48e1100
+    title: Fandom
+    url: 'https://www.fandom.com'
+  -
+    id: a6b962ea-e146-4605-8b5d-5d7269ea63ab
+    title: Itch
+    url: 'https://itch.io'
+  -
+    id: 2036675b-ad96-484d-955a-6462e705ad53
+    title: IndieDB
+    url: 'https://www.indiedb.com'

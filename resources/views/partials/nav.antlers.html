@@ -8,10 +8,42 @@
                 </div>
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
-                        <a href="/" class="{{ if segment_1 == '' }}text-yellow-400 border-b-2 border-yellow-500{{ else }}text-gray-200 hover:text-yellow-400 hover:bg-gray-700/50 rounded-md{{ /if }} px-3 py-2 text-sm font-bold uppercase tracking-wide transition-colors duration-200" aria-current="{{ if segment_1 == 'blacklist' }}page{{ else }}false{{ /if }}">Blacklist</a>
-                        <a href="/my-garage" class="{{ if segment_1 == 'my-garage' }}text-yellow-400 border-b-2 border-yellow-500{{ else }}text-gray-200 hover:text-yellow-400 hover:bg-gray-700/50 rounded-md{{ /if }} px-3 py-2 text-sm font-medium uppercase tracking-wide transition-colors duration-200" aria-current="{{ if segment_1 == 'my-garage' }}page{{ else }}false{{ /if }}">My Garage</a>
-                        <a href="/faq-tips" class="{{ if segment_1 == 'the-streets' }}text-yellow-400 border-b-2 border-yellow-500{{ else }}text-gray-200 hover:text-yellow-400 hover:bg-gray-700/50 rounded-md{{ /if }} px-3 py-2 text-sm font-medium uppercase tracking-wide transition-colors duration-200" aria-current="{{ if segment_1 == 'the-streets' }}page{{ else }}false{{ /if }}">Tips</a>
-                        <a href="/news" class="{{ if segment_1 == 'challenges' }}text-yellow-400 border-b-2 border-yellow-500{{ else }}text-gray-200 hover:text-yellow-400 hover:bg-gray-700/50 rounded-md{{ /if }} px-3 py-2 text-sm font-medium uppercase tracking-wide transition-colors duration-200" aria-current="{{ if segment_1 == 'challenges' }}page{{ else }}false{{ /if }}">Test News</a>
+<!--                        <a href="/" class="{{ if segment_1 == '' }}text-yellow-400 border-b-2 border-yellow-500{{ else }}text-gray-200 hover:text-yellow-400 hover:bg-gray-700/50 rounded-md{{ /if }} px-3 py-2 text-sm font-bold uppercase tracking-wide transition-colors duration-200" aria-current="{{ if segment_1 == 'blacklist' }}page{{ else }}false{{ /if }}">Blacklist</a>-->
+<!--                        <a href="/my-garage" class="{{ if segment_1 == 'my-garage' }}text-yellow-400 border-b-2 border-yellow-500{{ else }}text-gray-200 hover:text-yellow-400 hover:bg-gray-700/50 rounded-md{{ /if }} px-3 py-2 text-sm font-medium uppercase tracking-wide transition-colors duration-200" aria-current="{{ if segment_1 == 'my-garage' }}page{{ else }}false{{ /if }}">My Garage</a>-->
+<!--                        <a href="/faq-tips" class="{{ if segment_1 == 'the-streets' }}text-yellow-400 border-b-2 border-yellow-500{{ else }}text-gray-200 hover:text-yellow-400 hover:bg-gray-700/50 rounded-md{{ /if }} px-3 py-2 text-sm font-medium uppercase tracking-wide transition-colors duration-200" aria-current="{{ if segment_1 == 'the-streets' }}page{{ else }}false{{ /if }}">Tips</a>-->
+<!--                        <a href="/news" class="{{ if segment_1 == 'challenges' }}text-yellow-400 border-b-2 border-yellow-500{{ else }}text-gray-200 hover:text-yellow-400 hover:bg-gray-700/50 rounded-md{{ /if }} px-3 py-2 text-sm font-medium uppercase tracking-wide transition-colors duration-200" aria-current="{{ if segment_1 == 'challenges' }}page{{ else }}false{{ /if }}">Test News</a>-->
+                        {{ collection:pages }}
+                        {{ if ! children }}
+                        <a href="{{ url }}" class="{{ if current_url == permalink }}text-yellow-400 border-b-2 border-yellow-500{{ else }}text-gray-200 hover:text-yellow-400 hover:bg-gray-700/50 rounded-md{{ /if }} px-3 py-2 text-sm font-medium uppercase tracking-wide transition-colors duration-200" aria-current="{{ if current_url == permalink }}page{{ else }}false{{ /if }}">{{ title }}</a>
+                        {{ else }}
+                        <div class="relative group">
+                            <button type="button" class="{{ if current_url == permalink || is_parent }}text-yellow-400 border-b-2 border-yellow-500{{ else }}text-gray-200 hover:text-yellow-400 hover:bg-gray-700/50 rounded-md{{ /if }} px-3 py-2 text-sm font-medium uppercase tracking-wide transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50">
+                                {{ title }}
+                                <svg class="ml-2 -mr-1 h-5 w-5 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            {{# Dropdown Menu #}}
+                            <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5 hidden group-hover:block transition-all duration-300 ease-out transform scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 z-10">
+                                <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+
+                                    {{ children }}
+                                    <a href="{{ url }}" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-yellow-400 transition-colors duration-200" role="menuitem">{{ title }}</a>
+                                    {{ /children }}
+                                </div>
+                            </div>
+                        </div>
+                        {{ /if }}
+                        {{ /collection:pages }}
+
+                        <form action="search" method="GET" class="ml-4 flex items-center">
+                            <input type="search" name="q" placeholder="Search..."
+                                   class="px-3 py-2 text-sm rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                            <button type="submit" class="ml-2 px-3 py-2 text-sm font-medium text-white bg-yellow-600 hover:bg-yellow-700 rounded-md transition-colors duration-200">
+                                Search
+                            </button>
+                        </form>
+
                     </div>
                 </div>
             </div>

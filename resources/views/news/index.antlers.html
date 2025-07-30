@@ -1,66 +1,13 @@
-{{ collection:news }}
 
 
-<div class="
-    max-w-sm w-full lg:max-w-full lg:flex
-    bg-gray-900 border border-gray-700 rounded-lg overflow-hidden shadow-lg
-    hover:scale-105 transition duration-300 ease-in-out
-    hover:shadow-[0_0_20px_rgba(0,240,255,0.5)]
-    mb-6
-    ">
-    <div class="
-        h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l
-        bg-blend-multiply
-        " style="background-image: url('{{ featured_image }}')" title="{{ title }}">
-    </div>
-
-    <div class="
-        border-r border-b border-l border-gray-700 lg:border-l-0 lg:border-t lg:border-gray-700
-        bg-gray-800 rounded-b lg:rounded-b-none lg:rounded-r p-4
-        flex flex-col justify-between leading-normal
-        flex-grow
-
-        ">
-        <div class="mb-8">
-
-            {{ if tags }}
-            {{ tags }}
-            <a href="{{ url }}" class="text-sm text-gray-400 flex items-center mb-2">
-                <svg class="fill-current text-green-500 w-3 h-3 mr-2 drop-shadow-[0_0_2px_rgba(0,255,0,0.8)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
-                </svg>
-                {{ title }}
-            </a>
-            {{ /tags }}
-            {{ /if }}
-
-            <div class="
-                text-blue-400 font-bold text-xl mb-2
-                drop-shadow-[0_0_5px_rgba(0,240,255,0.7)]
-                "><a href="{{ url }}">{{ title }}</a></div>
-            <p class="text-gray-300 text-base">
-                {{ article_content | strip_tags }}...
-                <span class="text-blue-400 hover:underline">
-        <a href="{{ url }}">[Read More]</a>
-    </span>
-            </p>
-        </div>
-
-        <div class="flex items-center mt-4">
-            {{ if author:avatar}}
-            <img class="w-10 h-10 rounded-full mr-4 border-2 border-green-500" src="{{ author:avatar }}" alt="Avatar of {{ author }}">
-            {{ else }}
-
-            <img class="w-10 h-10 rounded-full mr-4 border-2 border-green-500" src="{{ author:avatar }}" alt="Default Avatar">
-            {{ /if }}
-            <div class="text-sm">
-                <p class="text-blue-400 leading-none">{{ author:name }}</p>
-                <p class="text-gray-400">{{ date format="M jS, Y" }}</p>
-            </div>
-        </div>
-    </div>
-</div>
+{{partial:news/header}}
 
 
 
-{{ /collection:news }}
+{{ partial:news/card }}
+
+
+
+
+
+
