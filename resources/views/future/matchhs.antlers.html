@@ -1,0 +1,284 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Match Human Service NSW</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+</head>
+<body class="bg-slate-400 m-0 p-0">
+<div class="w-full">
+    <div class="bg-[#f58220] flex justify-between items-center px-4 py-2">
+        <div class="font-bold uppercase font-sans text-white text-lg select-none">
+            Match Human Service NSW
+        </div>
+        <div class="flex items-center space-x-2 text-white text-xs font-semibold select-none">
+            <span>Welcome uma.mgmt</span>
+            <select
+                name="state"
+                id="state"
+                class="text-xs text-black rounded border border-gray-300 px-1 py-[2px]"
+                aria-label="Select state"
+            >
+                <option>NSW</option>
+                <option>VIC</option>
+                <option>SA</option>
+                <option>QLD</option>
+                <option>TAS</option>
+
+            </select>
+        </div>
+    </div>
+
+    <nav class="bg-[#3a536a] px-2 py-1 flex space-x-1 text-xs font-semibold select-none">
+        <a href="#" class="bg-[#2f4256] text-white rounded px-2 py-1">Dashboard</a>
+        <a href="#" class="bg-[#2f4256] text-white rounded px-2 py-1">Shifts</a>
+        <a href="#" class="bg-[#2f4256] text-white rounded px-2 py-1">Clients ▸</a>
+        <a href="#" class="bg-[#2f4256] text-white rounded px-2 py-1">Candidates ▸</a>
+        <a href="#" class="bg-[#2f4256] text-white rounded px-2 py-1">Timesheets</a>
+        <a href="#" class="bg-[#2f4256] text-white rounded px-2 py-1">Payroll</a>
+        <a href="#" class="bg-[#2f4256] text-white rounded px-2 py-1">Reports</a>
+        <a href="#" class="bg-[#2f4256] text-white rounded px-2 py-1">Setup</a>
+    </nav>
+
+    <div class="bg-white border border-gray-400 m-4 p-2 min-h-[300px]">
+        <form class="text-xs space-y-1" action="#" method="GET" aria-label="Filter form">
+            <div class="flex flex-wrap items-center gap-2">
+                <label for="dateStart" class="whitespace-nowrap">Date Start:</label>
+                <input
+                    type="text"
+                    id="dateStart"
+                    name="dateStart"
+                    class="border border-gray-300 rounded px-1 py-[2px] w-20"
+                    aria-label="Date Start"
+                />
+                <button
+                    type="button"
+                    aria-label="Date Start calendar"
+                    class="border border-gray-300 rounded px-1 py-[2px] text-[#f58220]"
+                >
+                    <i class="fas fa-calendar-alt"></i>
+                </button>
+
+                <label for="dateEnd" class="whitespace-nowrap">Date End:</label>
+                <input
+                    type="text"
+                    id="dateEnd"
+                    name="dateEnd"
+                    class="border border-gray-300 rounded px-1 py-[2px] w-20"
+                    aria-label="Date End"
+                />
+                <button
+                    type="button"
+                    aria-label="Date End calendar"
+                    class="border border-gray-300 rounded px-1 py-[2px] text-[#f58220]"
+                >
+                    <i class="fas fa-calendar-alt"></i>
+                </button>
+
+                <label for="centre" class="whitespace-nowrap">Centre:</label>
+                <input
+                    type="text"
+                    id="centre"
+                    name="centre"
+                    class="border border-gray-300 rounded px-1 py-[2px] w-[280px]"
+                    aria-label="Centre"
+                />
+                <button
+                    type="button"
+                    aria-label="Clear Centre"
+                    class="text-red-600 font-bold select-none leading-none"
+                >
+                    ✖
+                </button>
+                <label for="lc" class="flex items-center space-x-1 select-none">
+                    <span>LC</span>
+                    <input type="checkbox" id="lc" name="lc" class="mt-0.5" />
+                </label>
+
+                <label for="blockBookings" class="flex items-center space-x-1 select-none">
+                    <input type="checkbox" id="blockBookings" name="blockBookings" class="mt-0.5" />
+                    <span>Block Bookings</span>
+                </label>
+                <button
+                    type="submit"
+                    class="border border-gray-400 rounded px-2 py-[2px] text-xs"
+                    aria-label="Apply Filter"
+                >
+                    Apply Filter
+                </button>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 mt-1">
+                <label for="status" class="whitespace-nowrap">Status:</label>
+                <select
+                    id="status"
+                    name="status"
+                    class="border border-gray-300 rounded px-1 py-[2px] w-24"
+                    aria-label="Status"
+                >
+                    <option>All</option>
+                </select>
+
+                <label for="statusCheckbox" class="flex items-center space-x-1 select-none">
+                    <input type="checkbox" id="statusCheckbox" name="statusCheckbox" class="mt-0.5" />
+                </label>
+
+                <label for="role" class="whitespace-nowrap">Role:</label>
+                <select
+                    id="role"
+                    name="role"
+                    class="border border-gray-300 rounded px-1 py-[2px] w-24"
+                    aria-label="Role"
+                >
+                    <option>All</option>
+                </select>
+
+                <label for="candidate" class="whitespace-nowrap">Candidate:</label>
+                <input
+                    type="text"
+                    id="candidate"
+                    name="candidate"
+                    class="border border-gray-300 rounded px-1 py-[2px] w-[180px] bg-[#c0d0d0]"
+                    aria-label="Candidate"
+                    placeholder="Block Booking Desc..."
+                />
+                <button
+                    type="button"
+                    aria-label="Clear Candidate"
+                    class="text-red-600 font-bold select-none leading-none"
+                >
+                    ✖
+                </button>
+
+                <label for="ciType" class="whitespace-nowrap">CI Type:</label>
+                <select
+                    id="ciType"
+                    name="ciType"
+                    class="border border-gray-300 rounded px-1 py-[2px] w-20"
+                    aria-label="CI Type"
+                >
+                    <option>All</option>
+                </select>
+                <button
+                    type="button"
+                    class="border border-gray-400 rounded px-2 py-[2px] text-xs"
+                    aria-label="Clear Filter"
+                >
+                    Clear Filter
+                </button>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 mt-2">
+                <button
+                    type="button"
+                    class="border border-gray-400 rounded px-2 py-[2px] text-xs"
+                    aria-label="Add New Booking/Shift"
+                >
+                    Add New Booking/Shift
+                </button>
+                <button
+                    type="button"
+                    class="border border-gray-400 rounded px-2 py-[2px] text-xs"
+                    aria-label="Add Block Booking"
+                >
+                    Add Block Booking
+                </button>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 mt-2 text-xs select-none">
+                <label class="flex items-center space-x-1">
+                    <input type="checkbox" name="selectAllShifts" />
+                    <span>Select All Shifts</span>
+                </label>
+                <span class="whitespace-nowrap">Select shifts on these days</span>
+                <label class="flex items-center space-x-1">
+                    <input type="checkbox" name="mon" />
+                    <span>Mon</span>
+                </label>
+                <label class="flex items-center space-x-1">
+                    <input type="checkbox" name="tue" />
+                    <span>Tue</span>
+                </label>
+                <label class="flex items-center space-x-1">
+                    <input type="checkbox" name="wed" />
+                    <span>Wed</span>
+                </label>
+                <label class="flex items-center space-x-1">
+                    <input type="checkbox" name="thur" />
+                    <span>Thur</span>
+                </label>
+                <label class="flex items-center space-x-1">
+                    <input type="checkbox" name="fri" />
+                    <span>Fri</span>
+                </label>
+                <label class="flex items-center space-x-1">
+                    <input type="checkbox" name="sat" />
+                    <span>Sat</span>
+                </label>
+                <label class="flex items-center space-x-1">
+                    <input type="checkbox" name="sun" />
+                    <span>Sun</span>
+                </label>
+                <button
+                    type="button"
+                    class="border border-gray-400 rounded px-2 py-[2px] text-xs"
+                    aria-label="Fill Selected"
+                >
+                    Fill Selected
+                </button>
+                <button
+                    type="button"
+                    class="border border-gray-400 rounded px-2 py-[2px] text-xs"
+                    aria-label="Change Selected"
+                >
+                    Change Selected
+                </button>
+                <label for="confirmTo" class="whitespace-nowrap">Confirm To:</label>
+                <input
+                    type="text"
+                    id="confirmTo"
+                    name="confirmTo"
+                    class="border border-gray-300 rounded px-1 py-[2px] w-32"
+                    aria-label="Confirm To"
+                />
+                <label class="flex items-center space-x-1 select-none">
+                    <input type="checkbox" name="sendSMS" />
+                    <span>Send SMS</span>
+                </label>
+                <label class="flex items-center space-x-1 select-none">
+                    <input type="checkbox" name="sendEmail" />
+                    <span>Send Email</span>
+                </label>
+                <button
+                    type="button"
+                    class="border border-gray-400 rounded px-2 py-[2px] text-xs"
+                    aria-label="Confirm Selected"
+                >
+                    Confirm Selected
+                </button>
+                <button
+                    type="button"
+                    class="border border-gray-400 rounded px-2 py-[2px] text-xs"
+                    aria-label="Delete Selected"
+                >
+                    Delete Selected
+                </button>
+            </div>
+
+            <div class="mt-2 text-[9px] text-gray-700 select-none">
+                No Shifts Found, please refine search
+            </div>
+        </form>
+    </div>
+
+    <footer class="text-center text-[10px] text-gray-600 select-none mb-2">
+        Version: 1.0.0.0 Dated: 26/06/2025 4:00:52 PM
+        <a href="#" class="text-blue-600 underline ml-1">Log</a>
+    </footer>
+</div>
+</body>
+</html>
